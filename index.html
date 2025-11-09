@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>G. Maheshwar Reddy — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --bg: #19212e;
+  --card: rgba(11,18,32,0.85);
+  --muted: #9aa4b2;
+  --accent: #ff6b3d;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg,#071022 0%,#081529 100%);
+  color: #e6eef8;
+  line-height: 1.6;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+a { text-decoration: none; transition: 0.3s; }
+.wrap { max-width: 900px; margin: 36px auto; padding: 36px; position: relative; }
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(11,18,32,0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 0;
+  border-radius: 12px;
+  margin-bottom: 36px;
+  z-index: 1000;
+}
+nav a {
+  color: #e6eef8;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+nav a:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Header / About */
+header { display: flex; gap: 20px; align-items: center; flex-direction: column; text-align:center; }
+.avatar-container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  margin-bottom: 16px;
+  overflow: visible;
+}
+.avatar-container:hover::before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.avatar-container:hover::after {
+  opacity: 0.7;
+  transform: scale(1.5);
+}
+.avatar { width: 300px; height: 250px; border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.05); display: grid; place-items:center; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.avatar:hover { transform: scale(1.12) rotateX(5deg) rotateY(-5deg); box-shadow: 0 12px 50px rgba(55, 245, 80, 0.7); }
+
+h1 { font-size: 40px; margin-bottom: 6px; }
+h1 span { font-weight: 300; color: var(--muted); font-size: 18px; }
+.lead { color: var(--muted); font-size: 20px; margin-bottom:32px; }
+
+/* Cards */
+.card { background: var(--card); padding: 36px; border-radius: 20px; margin-bottom: 36px; transition: all 0.3s ease; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(255,107,61,0.4); }
+h2 { font-size: 32px; margin-bottom: 20px; color: #fff; }
+p, li { font-size: 20px; margin-bottom: 16px; color: #d6e3f5; }
+ul { padding-left: 28px; margin-bottom: 18px; }
+
+/* Tech Stack */
+.tech-category { margin-bottom: 24px; }
+.tech-category h3 { font-size: 28px; margin-bottom: 14px; color: var(--accent); }
+.badges { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+.badge { width: 140px; height: 40px; cursor:pointer; transition: all 0.3s ease; }
+.badge img { width: 100%; height: 100%; object-fit: contain; }
+.badge:hover { transform: scale(1.35) rotate(-3deg); box-shadow: 0 0 25px var(--accent), 0 0 50px rgba(255,107,61,0.4); }
+
+/* Projects */
+.project { background: rgba(255,255,255,0.05); padding: 28px; border-radius: 18px; margin-bottom: 24px; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.project:hover { transform: scale(1.08) rotateX(3deg) rotateY(-3deg); box-shadow: 0 16px 50px rgba(255,107,61,0.6); }
+.project-title { font-weight: 700; font-size: 22px; }
+.project-desc { color: var(--muted); font-size: 18px; margin-top: 8px; }
+.project-links { margin-top: 14px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Link buttons */
+.link-btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.05); font-weight: 600; font-size: 18px; color: #fff; transition: all 0.3s ease; }
+.link-btn:hover { transform: scale(1.12); background: var(--accent); box-shadow: 0 0 25px var(--accent), 0 0 50px rgba(255,107,61,0.4); }
+
+/* Contact, Certificates, Hobbies */
+.links { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; font-size: 20px; }
+.links a i { margin-right: 8px; transition: transform 0.3s ease; }
+.links a:hover i { transform: rotate(20deg) scale(1.3); }
+.certificate-list, .hobbies-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.certificate, .hobby { background: rgba(255,255,255,0.05); padding: 20px 24px; border-radius: 16px; font-size: 18px; display:flex; align-items:center; gap:12px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.certificate:hover, .hobby:hover, .card.contact:hover, .card.certificates:hover, .card.hobbies:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 40px rgba(255,107,61,0.5); }
+.hobby i { font-size: 22px; }
+
+/* GitHub stats */
+.stats img { width: 70%; border-radius: 12px; align-items: center ;margin-bottom: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.stats img:hover { transform: scale(1.05); box-shadow: 0 6px 28px rgba(255,107,61,0.5); }
+/* GitHub stats */
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers all images */
+  gap: 16px; /* space between images */
+}
+.stats img {
+  width: 70%; /* set width to 70% */
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stats img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 28px rgba(255,107,61,0.5);
+}
+
+/* Footer */
+footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 18px; }
+
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#certificates">Certificates</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- Header / About -->
+  <header id="about">
+    <div class="avatar-container">
+      <div class="avatar">
+        <img src="Mahi_Photo.jpg" alt="avatar">
+      </div>
+    </div>
+    <h1>G. Maheshwar Reddy <span>— Full Stack Developer</span></h1>
+    <div class="lead">Java · Python · Spring Boot · Django · MySQL · React</div>
+  </header>
+
+  <!-- About Me Section -->
+  <section class="card" id="about-me">
+    <h2>About Me</h2>
+    <p>Passionate about building <strong>scalable, intuitive, and impactful</strong> digital products. Currently integrating <strong>React + Django</strong> and contributing to open-source.</p>
+    <ul>
+      <li>🧩 Experienced in <strong>Java, Python, SQL, HTML, CSS, JavaScript</strong></li>
+      <li>🌱 Learning: <strong>React + Django</strong></li>
+      <li>🎯 Goal: Become a production-ready <strong>Software Engineer</strong></li>
+    </ul>
+  </section>
+
+  <!-- Skills / Tech Stack -->
+  <section class="card" id="skills">
+    <h2>Tech Stack & Tools</h2>
+    <div class="tech-category">
+      <h3>Languages</h3>
+      <div class="badges">
+        <img class="badge" src="https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/Python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=yellow">
+        <img class="badge" src="https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black">
+      </div>
+    </div>
+    <div class="tech-category">
+      <h3>Databases</h3>
+      <div class="badges">
+        <img class="badge" src="https://img.shields.io/badge/MySQL-%234479A1.svg?style=for-the-badge&logo=mysql&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/MongoDB-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white">
+      </div>
+    </div>
+    <div class="tech-category">
+      <h3>Frameworks</h3>
+      <div class="badges">
+        <img class="badge" src="https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black">
+        <img class="badge" src="https://img.shields.io/badge/Spring%20Boot-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/Django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white">
+      </div>
+    </div>
+    <div class="tech-category">
+      <h3>Tools & Platforms</h3>
+      <div class="badges">
+        <img class="badge" src="https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/Eclipse-%23000000.svg?style=for-the-badge&logo=eclipse&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/Git-%23F05032.svg?style=for-the-badge&logo=git&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/IntelliJ-%23000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white">
+        <img class="badge" src="https://img.shields.io/badge/Netlify-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white">
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="card" id="projects">
+    <h2>Featured Projects</h2>
+
+    <div class="project">
+      <div class="project-title">Meal-Mate</div>
+      <div class="project-desc">A Python + HTML food ordering app. Browse menus, place orders and manage cart.</div>
+      <div class="project-links">
+        <a class="link-btn" href="https://github.com/gangannagarimaheshwarreddy/Meal_Mate_A_Food-Order_App" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-title">React Stopwatch</div>
+      <div class="project-desc">Sleek stopwatch built using React — minimal UI & realtime performance.</div>
+      <div class="project-links">
+        <a class="link-btn" href="https://github.com/gangannagarimaheshwarreddy/React-StopWatch" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+        <a class="link-btn" href="https://mystopwatch18.netlify.app/" target="_blank"><i class="fas fa-eye"></i>Live</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates -->
+  <section class="card certificates" id="certificates">
+    <h2>Certificates</h2>
+    <div class="certificate-list">
+      <div class="certificate"><i class="fas fa-certificate"></i>Java and Python Full Stack Development</div>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section class="card hobbies" id="hobbies">
+    <h2>Hobbies</h2>
+    <div class="certificate-list">
+      <div class="hobby"><i class="fas fa-music"></i>Cricket</div>
+      <div class="hobby"><i class="fas fa-gamepad"></i>Movies</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="card contact" id="contact">
+    <h2>Contact</h2>
+    <div class="links">
+      <a class="link-btn" href="https://wa.me/918247543260" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+      <a class="link-btn" href="mailto:maheshwar12345reddy@gmail.com" target="_blank"><i class="fas fa-envelope"></i>Email</a>
+      <a class="link-btn" href="https://github.com/gangannagarimaheshwarreddy" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+      <a class="link-btn" href="https://www.linkedin.com/in/gangannagarimaheshwarreddy/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- GitHub Stats -->
+  <section class="card stats">
+    <h2>GitHub Stats</h2>
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=gangannagarimaheshwarreddy&theme=tokyonight" alt="streak">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=gangannagarimaheshwarreddy&layout=compact&theme=radical" alt="langs">
+    <img src="https://komarev.com/ghpvc/?username=gangannagarimaheshwarreddy&label=Profile%20Views&color=0e75b6&style=flat" alt="views">
+  </section>
+
+  <footer>
+    Made with ❤️ • <span style="color:var(--muted)">G. Maheshwar Reddy</span>
+  </footer>
+
+</div>
+</body>
+</html>  for this in github stats keep images in centrt with the width of 70
