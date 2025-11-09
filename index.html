@@ -17,7 +17,7 @@
 body {
   font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
   background: linear-gradient(180deg,#071022 0%,#081529 100%);
-  color: #e6eef8;
+  color:white;
   line-height: 1.6;
   min-height: 100vh;
   scroll-behavior: smooth;
@@ -84,6 +84,20 @@ h2 { font-size: 32px; margin-bottom: 20px; color: #fff; }
 p, li { font-size: 20px; margin-bottom: 16px; color: #d6e3f5; }
 ul { padding-left: 28px; margin-bottom: 18px; }
 
+/* Resume */
+.resume-list { display: flex; flex-direction: column; gap: 16px; }
+.resume-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.resume-item:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 40px rgba(255,107,61,0.5); }
+.resume-item strong { font-size: 20px; color: var(--accent); }
+.resume-item em { font-size: 18px; color: var(--muted); }
+
+/* Education */
+.education-list { display: flex; flex-direction: column; gap: 16px; }
+.education-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.education-item:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 40px rgba(255,107,61,0.5); }
+.education-item strong { font-size: 20px; color: var(--accent); }
+.education-item em { font-size: 18px; color: var(--muted); }
+
 /* Tech Stack */
 .tech-category { margin-bottom: 24px; }
 .tech-category h3 { font-size: 28px; margin-bottom: 14px; color: var(--accent); }
@@ -113,24 +127,9 @@ ul { padding-left: 28px; margin-bottom: 18px; }
 .hobby i { font-size: 22px; }
 
 /* GitHub stats */
-.stats img { width: 70%; border-radius: 12px; align-items: center ;margin-bottom: 14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.stats { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.stats img { width: 70%; border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .stats img:hover { transform: scale(1.05); box-shadow: 0 6px 28px rgba(255,107,61,0.5); }
-/* GitHub stats */
-.stats {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centers all images */
-  gap: 16px; /* space between images */
-}
-.stats img {
-  width: 70%; /* set width to 70% */
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.stats img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 28px rgba(255,107,61,0.5);
-}
 
 /* Footer */
 footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 18px; }
@@ -142,8 +141,10 @@ footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 1
 <!-- Navigation -->
 <nav>
   <a href="#about">About</a>
+  <a href="#resume">Resume</a>
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
   <a href="#certificates">Certificates</a>
   <a href="#hobbies">Hobbies</a>
   <a href="#contact">Contact</a>
@@ -158,20 +159,9 @@ footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 1
         <img src="Mahi_Photo.jpg" alt="avatar">
       </div>
     </div>
-    <h1>G. Maheshwar Reddy <span>— Full Stack Developer</span></h1>
+    <h1 style="color: white;">G. Maheshwar Reddy</h1>
     <div class="lead">Java · Python · Spring Boot · Django · MySQL · React</div>
   </header>
-
-  <!-- About Me Section -->
-  <section class="card" id="about-me">
-    <h2>About Me</h2>
-    <p>Passionate about building <strong>scalable, intuitive, and impactful</strong> digital products. Currently integrating <strong>React + Django</strong> and contributing to open-source.</p>
-    <ul>
-      <li>🧩 Experienced in <strong>Java, Python, SQL, HTML, CSS, JavaScript</strong></li>
-      <li>🌱 Learning: <strong>React + Django</strong></li>
-      <li>🎯 Goal: Become a production-ready <strong>Software Engineer</strong></li>
-    </ul>
-  </section>
 
   <!-- Skills / Tech Stack -->
   <section class="card" id="skills">
@@ -234,6 +224,32 @@ footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 1
     </div>
   </section>
 
+  <!-- Resume Section -->
+  <section class="card" id="resume">
+    <h2>Resume</h2>
+    <p>Download or view my full professional resume to see my education, experience, and projects in detail.</p>
+    <div class="links">
+      <a class="link-btn" href="resume (2).pdf" target="_blank"><i class="fas fa-file-pdf"></i>Download Resume</a>
+      <a class="link-btn" href="resume (2).pdf" target="_blank"><i class="fas fa-eye"></i>View Resume</a>
+    </div>
+  </section>
+<!-- Education Section -->
+ <section class="card education" id="education">
+    <h2>Education</h2>
+    <div class="education-list">
+      <div class="education-item">
+        <strong>B.Tech</strong> - Presidency University, Bengaluru.<br>
+        <em>Course:</em> Electronics and Communication Engineering<br>
+        <em>CGPA:</em> 7.56
+      </div>
+      <div class="education-item">
+        <strong>Intermediate</strong> - Sri Chaitanya jr College, Vijayawad.<br>
+        <em>Course:</em> MPC<br>
+        <em>Percentage:</em> 93.5%
+      </div>
+    </div>
+  </section>
+
   <!-- Certificates -->
   <section class="card certificates" id="certificates">
     <h2>Certificates</h2>
@@ -276,4 +292,4 @@ footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 1
 
 </div>
 </body>
-</html>  for this in github stats keep images in centrt with the width of 70
+</html>
