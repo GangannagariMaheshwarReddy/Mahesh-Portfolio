@@ -28,6 +28,7 @@ Hi! I'm **G. Maheshwar Reddy**, a **Java and Python Full Stack Developer** passi
 ## 🚀 Projects
 - **Meal-Mate** – Python + HTML food ordering app. [GitHub](https://github.com/gangannagarimaheshwarreddy/Meal_Mate_A_Food-Order_App)  
 - **React Stopwatch** – Minimal UI stopwatch built in React. [GitHub](https://github.com/gangannagarimaheshwarreddy/React-StopWatch) | [Live](https://mystopwatch18.netlify.app/)
+- **Voting App** – Advanced UI Voting App built in React. [GitHub](https://github.com/gangannagarimaheshwarreddy/voting-app) | [Live](https://advancedvotingapp.netlify.app/)
 
 ---
 
