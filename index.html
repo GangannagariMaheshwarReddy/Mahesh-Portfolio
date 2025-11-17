@@ -26,7 +26,7 @@ body {
 a { text-decoration: none; transition: 0.3s; }
 .wrap { max-width: 900px; margin: 20px auto; padding: 20px; }
 
-/* Navigation */
+
 nav {
   position: sticky;
   top: 0;
@@ -153,6 +153,7 @@ footer { margin-top: 20px; text-align: center; color: var(--muted); font-size: 1
   padding-top: 100px; /* Add this */
 }
 
+
 nav {
   position: fixed; /* change from sticky to fixed */
   top: 0;
@@ -171,6 +172,121 @@ nav {
   transition: top 0.3s ease; /* smooth hide/show */
 }
 
+/* Slide-in for subtitle (right to left) */
+h1 span {
+  display: inline-block;
+  animation: slideInRight 1.4s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Fade-up for lead text */
+.lead {
+  opacity: 0;
+  animation: fadeUp 1.4s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Smooth fade-in for avatar */
+.avatar-container {
+  opacity: 0;
+  animation: fadeZoom 1.5s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeZoom {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scroll-reveal for all sections */
+section.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+section.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+section.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+section.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+header.visible, section.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+header {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+/* General hidden state */
+section.card, header {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease-out;
+}
+
+/* Visible (fade up for header) */
+header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left slide sections */
+section.card.left {
+  transform: translateX(-180px);
+}
+
+/* Right slide sections */
+section.card.right {
+  transform: translateX(180px);
+}
+
+/* When visible, reset transform */
+section.card.visible {
+  opacity: 4;
+  transform: translateX(0);
+}
+
+
 </style>
 </head>
 <body>
@@ -183,6 +299,7 @@ nav {
   <a href="#projects">Projects</a>
   <a href="#education">Education</a>
   <a href="#certificates">Certificates</a>
+  <a href="#hobbies">Hobbies</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -266,6 +383,7 @@ nav {
         <a class="link-btn" href="https://mystopwatch18.netlify.app/" target="_blank"><i class="fas fa-eye"></i>Live</a>
       </div>
     </div>
+
     <div class="project">
       <div class="project-title">Voting App</div>
       <div class="project-desc">Advanced UI Voting App built using React.</div>
@@ -345,21 +463,46 @@ nav {
 </body>
 
 <script>
-let lastScrollTop = 0;
+// Navbar hide on scroll down, show on scroll up
 const nav = document.querySelector('nav');
-
+let lastScrollTop = 0;
 window.addEventListener('scroll', () => {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (scrollTop > lastScrollTop) {
-    // Scrolling down -> hide navbar
-    nav.style.top = '-80px'; // adjust based on navbar height
-  } else {
-    // Scrolling up -> show navbar
-    nav.style.top = '0';
-  }
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  nav.style.top = scrollTop > lastScrollTop ? '-80px' : '0';
+  lastScrollTop = Math.max(scrollTop, 0);
 });
+
+// Select sections and assign left/right directions + stagger delay
+const sections = document.querySelectorAll('section.card');
+sections.forEach((section, index) => {
+  if (section.id !== 'about') { // skip about for fade only
+    if (index % 2 === 0) section.classList.add('left');
+    else section.classList.add('right');
+  }
+
+  // Add stagger delay (0.2s between each)
+  section.style.transitionDelay = `${index * 0.03}s`;
+});
+
+// Include header in scroll animation
+const allAnimated = document.querySelectorAll('header, section.card');
+
+const revealOnScroll = () => {
+  const triggerBottom = window.innerHeight * 0.85;
+  allAnimated.forEach((section, index) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < triggerBottom && rect.bottom > 100) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
+    }
+  });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
 </script>
 
-</html>
+
+</html>  
