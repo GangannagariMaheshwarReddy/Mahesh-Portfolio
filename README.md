@@ -20,8 +20,8 @@ Hi! I'm **G. Maheshwar Reddy**, a **Java and Python Full Stack Developer** passi
 ---
 
 ## 🎓 Education
-**B.Tech** – Electronics & Communication Engineering, Presidency University, Bengaluru (CGPA: 7.56)  
-**Intermediate** – MPC, Sri Chaitanya jr College, Vijayawada (Percentage: 93.5%)
+**B.Tech** – Electronics & Communication Engineering, Presidency University, Bengaluru. (CGPA: 7.56)  
+**Intermediate** – MPC, Sri Chaitanya jr College, Vijayawada. (Percentage: 93.5%)
 
 ---
 
