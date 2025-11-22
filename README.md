@@ -1,6 +1,5 @@
 # G. Maheshwar Reddy — Portfolio !!!
 
-
 Hi! I'm **G. Maheshwar Reddy**, a**Java and Python Full Stack Developer** passionate about building scalable and intuitive software.  
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gangannagarimaheshwarreddy/) 
