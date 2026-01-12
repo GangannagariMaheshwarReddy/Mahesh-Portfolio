@@ -43,4 +43,4 @@ Hi! I'm **G. Maheshwar Reddy**, a**Java and Python Full Stack Developer** passio
 
 ---
 
-Made with ❤️ by **G. Maheshwar Reddy**
+Made with ❤️ by **G.Maheshwar Reddy**
